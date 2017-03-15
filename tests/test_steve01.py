@@ -77,3 +77,15 @@ def test_output_includes_factor_list(input, factorlist):
     runner = CliRunner()
     result = runner.invoke(cli.main, input=input)
     assert factorlist in result.output
+
+
+@pytest.mark.parametrize("input,output", [
+    (496, "is perfect"),
+    (5, "is not perfect"),
+    (6, "is perfect"),
+    (25, "is not perfect")
+])
+def test_output_includes_answer(input, output):
+    runner = CliRunner()
+    result = runner.invoke(cli.main, input=str(input))
+    assert output in result.output
