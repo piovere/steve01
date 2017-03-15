@@ -16,7 +16,7 @@ requirements = [
 
 test_requirements = [
     # TODO: put package test requirements here
-    'pytest>=3.0''
+    'pytest>=3.0'
 ]
 
 setup(
@@ -47,7 +47,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
+        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
