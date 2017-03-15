@@ -9,8 +9,10 @@ def findFactors(number):
 
     return l
 
+
 def isPerfectNumber(number):
     return sum(findFactors(number)) == number
+
 
 def printPerfectNumber(number, perfect):
     print("The factors are: {0}".format(findFactors(number)))
@@ -21,6 +23,7 @@ def printPerfectNumber(number, perfect):
         a = "is not"
 
     print("The number {0} {1} perfect".format(number, a))
+
 
 if __name__ == "__main__":
     number = int(input('Enter Number: '))
