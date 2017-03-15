@@ -25,9 +25,19 @@ def printPerfectNumber(number, perfect):
     print("The number {0} {1} perfect".format(number, a))
 
 
-if __name__ == "__main__":
+def inputNumber():
     number = int(input('Enter Number: '))
+
+    return number
+
+
+def main():
+    number = inputNumber()
 
     perfect = isPerfectNumber(number)
 
     printPerfectNumber(number, perfect)
+
+
+if __name__ == "__main__":
+    main()

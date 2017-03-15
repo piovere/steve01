@@ -24,6 +24,7 @@ def response():
     """
     # import requests
     # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+    assert True
 
 
 def test_content(response):
@@ -31,15 +32,18 @@ def test_content(response):
     """
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    assert True
+
 
 def test_command_line_interface():
     runner = CliRunner()
-    result = runner.invoke(cli.main)
+    result = runner.invoke(cli.main, input="496")
     assert result.exit_code == 0
-    assert 'steve01.cli.main' in result.output
+    assert 'Enter Number' in result.output
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
+
 
 @pytest.mark.parametrize("input,output", [
     (496, [1, 2, 4, 8, 16, 31, 62, 124, 248]),
@@ -50,6 +54,7 @@ def test_command_line_interface():
 def test_can_find_factors(input, output):
     l = steve01.findFactors(input)
     assert l == output
+
 
 @pytest.mark.parametrize("input,output", [
     (6, True),
@@ -62,10 +67,13 @@ def test_can_find_factors(input, output):
 def test_is_perfect_number(input, output):
     assert steve01.isPerfectNumber(input) == output
 
+
 @pytest.mark.parametrize("input,factorlist", [
-    (True, True)
+    ('496', '[1, 2, 4, 8, 16, 31, 62, 124, 248]'),
+    ('6', '[1, 2, 3]'),
+    ('5', '[1]')
 ])
 def test_output_includes_factor_list(input, factorlist):
     runner = CliRunner()
-    result = runner.invoke(cli.main)
-    assert 'steve01.cli.main' in result.output
+    result = runner.invoke(cli.main, input=input)
+    assert factorlist in result.output
