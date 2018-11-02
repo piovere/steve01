@@ -23,12 +23,9 @@ deploy:
     repo: piovere/steve01
     tags: true
 env:
-- TOXENV=py35
-- TOXENV=py34
-- TOXENV=py33
-- TOXENV=py27
-- TOXENV=py26
+- TOXENV=py36
+- TOXENV=py37
 install: pip install -U tox
 language: python
-python: 3.5
+python: 3.7
 script: tox -e ${TOXENV}
