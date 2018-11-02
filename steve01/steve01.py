@@ -2,11 +2,7 @@
 
 
 def findFactors(number):
-    l = []
-    for i in range(1, number):
-        if number % i == 0:
-            l.append(i)
-
+    l = [i for i in range(1, number) if number % i == 0]
     return l
 
 
@@ -22,7 +18,7 @@ def printPerfectNumber(number, perfect):
     else:
         a = "is not"
 
-    print("The number {0} {1} perfect".format(number, a))
+    print(f"The number {number} {a} perfect")
 
 
 def inputNumber():
